@@ -4,8 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drag and Drop app</title>
-    <link rel="stylesheet" href="/src/style.css" />
-    <script type="module" defer src="/src/main.ts"></script>
+    <link rel="stylesheet" href="/src/style/style.css" />
+    <script type="module" defer src="/src/ts/main.ts"></script>
   </head>
-  <body></body>
+  <body>
+    <header></header>
+    <main>
+      <section>
+        <article>
+          <form>
+            <label for="taskName">Task:</label>
+            <input type="text" id="taskName" />
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" />
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" />
+            <button type="submit" id="submit-form-btn">Click</button>
+          </form>
+        </article>
+        <article id="container"></article>
+      </section>
+      <footer></footer>
+    </main>
+  </body>
 </html>
