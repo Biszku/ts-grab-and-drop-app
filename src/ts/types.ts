@@ -1,1 +1,6 @@
-export type TaskData = { taskName: string; startDate: string; endDate: string };
+export type TaskData = {
+  taskName: string;
+  startDate: string;
+  endDate: string;
+  status: string;
+};

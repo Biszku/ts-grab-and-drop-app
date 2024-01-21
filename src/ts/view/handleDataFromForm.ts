@@ -13,22 +13,26 @@ class HandleDataFromForm extends View {
 
   getDataFromForm(func: (data: TaskData) => void, e: Event) {
     e.preventDefault();
+
     const taskName = document.querySelector("#taskName") as HTMLInputElement;
     const startDate = document.querySelector("#startDate") as HTMLInputElement;
     const endDate = document.querySelector("#endDate") as HTMLInputElement;
+
     if (
       taskName.value.trim() === "" ||
       startDate.value === "" ||
       endDate.value === ""
     ) {
-      this.resetInputs([taskName, startDate, endDate]);
       return null;
     }
+
     const taskData = {
-      taskName: taskName.value,
+      taskName: taskName.value.trim(),
       startDate: startDate.value,
       endDate: endDate.value,
+      status: "pending",
     };
+
     this.resetInputs([taskName, startDate, endDate]);
     func(taskData);
   }

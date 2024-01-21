@@ -2,10 +2,13 @@ import { TaskData } from "../types";
 import View from "./view";
 
 class TaskView extends View {
+  tasksState: TaskData[] = [];
+
   renderTask(data: TaskData) {
     if (data === null) return;
     this.render(this.renderMarkUp(data));
   }
+
   renderMarkUp(data: TaskData) {
     const { taskName, startDate, endDate } = data;
     const div = document.createElement("div");
