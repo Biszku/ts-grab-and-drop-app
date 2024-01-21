@@ -1,8 +1,9 @@
 import { TaskData } from "../types";
 import View from "./view";
+import { v4 as uuidv4 } from "uuid";
 
 class HandleDataFromForm extends View {
-  submitBtn = document.querySelector("#submit-form-btn")!;
+  submitBtn = document.querySelector("#submit-form-btn") as HTMLButtonElement;
 
   handleForm(func: (data: TaskData) => void) {
     this.submitBtn.addEventListener(
@@ -27,6 +28,7 @@ class HandleDataFromForm extends View {
     }
 
     const taskData = {
+      id: uuidv4(),
       taskName: taskName.value.trim(),
       startDate: startDate.value,
       endDate: endDate.value,
