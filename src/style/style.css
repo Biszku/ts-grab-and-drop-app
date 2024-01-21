@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 *::after,
 *::before {
@@ -11,5 +17,23 @@ html {
 }
 
 body {
-  background-color: #2f2f2f;
+  min-height: 100svh;
+  font-family: sans-serif;
+  background: no-repeat
+    linear-gradient(to right bottom, #cfc6a2, rgb(218, 206, 240));
+  font-size: 1.6rem;
+}
+
+.header_h1 {
+  font-size: 8.2rem;
+  text-align: center;
+  font-family: "Ubuntu Mono", monospace;
+  letter-spacing: 0.25rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(100, 5, 224),
+    rgb(103, 20, 212)
+  );
+  background-clip: text;
+  color: transparent;
 }
