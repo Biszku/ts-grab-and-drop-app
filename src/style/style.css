@@ -25,15 +25,10 @@ body {
 }
 
 .header_h1 {
-  font-size: 8.2rem;
-  text-align: center;
   font-family: "Ubuntu Mono", monospace;
-  letter-spacing: 0.25rem;
   background-image: linear-gradient(
     to right,
     rgb(100, 5, 224),
     rgb(103, 20, 212)
   );
-  background-clip: text;
-  color: transparent;
 }
