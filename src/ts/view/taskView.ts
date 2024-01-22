@@ -2,9 +2,9 @@ import { TaskData } from "../types";
 import View from "./view";
 
 class TaskView extends View {
-  bin = document.querySelector("#pendingTasks") as HTMLDivElement;
-  pending = document.querySelector("#finishedTasks") as HTMLDivElement;
-  finished = document.querySelector("#moveToBin") as HTMLDivElement;
+  pending = document.querySelector("#pendingTasks") as HTMLDivElement;
+  finished = document.querySelector("#finishedTasks") as HTMLDivElement;
+  bin = document.querySelector("#moveToBin") as HTMLDivElement;
   elementDrag: null | HTMLDivElement = null;
 
   curCategory = "pending";
@@ -47,10 +47,11 @@ class TaskView extends View {
   }
 
   renderMarkUp(data: TaskData) {
-    const { taskName, startDate, endDate, status } = data;
+    const { taskName, description, startDate, endDate, status } = data;
     const div = document.createElement("div");
+    div.setAttribute("draggable", "true");
     div.classList.add("cursor-grab", "select-none", "relative");
-    div.textContent = `${taskName},${startDate},${endDate},${status}`;
+    div.textContent = `${taskName},${description},${startDate},${endDate},${status}`;
     this.taskMovingHandler(div);
     return div;
   }

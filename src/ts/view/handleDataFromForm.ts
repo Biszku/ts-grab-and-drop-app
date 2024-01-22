@@ -18,11 +18,15 @@ class HandleDataFromForm extends View {
     const taskName = document.querySelector("#taskName") as HTMLInputElement;
     const startDate = document.querySelector("#startDate") as HTMLInputElement;
     const endDate = document.querySelector("#endDate") as HTMLInputElement;
+    const description = document.querySelector(
+      "#description"
+    ) as HTMLInputElement;
 
     if (
       taskName.value.trim() === "" ||
       startDate.value === "" ||
-      endDate.value === ""
+      endDate.value === "" ||
+      description.value === ""
     ) {
       return null;
     }
@@ -32,6 +36,7 @@ class HandleDataFromForm extends View {
       taskName: taskName.value.trim(),
       startDate: startDate.value,
       endDate: endDate.value,
+      description: description.value,
       status: "pending",
     };
 
