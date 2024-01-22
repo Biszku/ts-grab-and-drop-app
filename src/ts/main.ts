@@ -4,7 +4,6 @@ import taskView from "./view/taskView";
 
 const createNewTask = (data: TaskData) => {
   taskView.addTask(data);
-  taskView.renderTask();
 };
 
 const checkLocalStorage = () => {
@@ -12,7 +11,6 @@ const checkLocalStorage = () => {
   if (!storedData) return;
   const retrievedData = JSON.parse(storedData);
   taskView.updateTaskState(retrievedData);
-  taskView.renderTask();
 };
 
 const init = () => {
