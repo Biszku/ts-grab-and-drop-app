@@ -22,13 +22,14 @@ body {
   background: no-repeat
     linear-gradient(to right bottom, #cfc6a2, rgb(218, 206, 240));
   font-size: 1.6rem;
+  color: #1a1a1a;
 }
 
 .header_h1 {
   font-family: "Ubuntu Mono", monospace;
-  background-image: linear-gradient(
-    to right,
-    rgb(100, 5, 224),
-    rgb(103, 20, 212)
-  );
+  background-image: linear-gradient(to right, rgb(124 72 193), rgb(91 41 157));
+}
+
+.input-shadow {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
