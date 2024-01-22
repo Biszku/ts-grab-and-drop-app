@@ -5,7 +5,10 @@ class TaskView extends View {
   pending = document.querySelector("#pendingTasks") as HTMLDivElement;
   finished = document.querySelector("#finishedTasks") as HTMLDivElement;
   bin = document.querySelector("#moveToBin") as HTMLDivElement;
+
   curCategory = "pending";
+
+  tasksState: TaskData[] = [];
 
   elementDrag: null | HTMLDivElement = null;
   selectedStatus: null | string = null;
@@ -72,7 +75,7 @@ class TaskView extends View {
   }
 
   taskStateMutation(id: string) {
-    console.log(id, "Koniec");
+    console.log(1);
     if (this.selectedStatus === null) return;
     const newDatas = this.tasksState.map((obj) => {
       if (obj.id === id && this.selectedStatus !== null) {
