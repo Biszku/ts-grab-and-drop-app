@@ -3,18 +3,16 @@ import View from "./view";
 import { v4 as uuidv4 } from "uuid";
 
 class HandleDataFromForm extends View {
-  submitBtn = document.querySelector("#submit-form-btn") as HTMLButtonElement;
+  addingForm = document.querySelector("#adding-form") as HTMLButtonElement;
 
   handleForm(func: (data: TaskData) => void) {
-    this.submitBtn.addEventListener(
-      "click",
-      this.getDataFromForm.bind(this, func)
-    );
+    this.addingForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.getDataFromForm.bind(this, func)();
+    });
   }
 
-  getDataFromForm(func: (data: TaskData) => void, e: Event) {
-    e.preventDefault();
-
+  getDataFromForm(func: (data: TaskData) => void) {
     const taskName = document.querySelector("#taskName") as HTMLInputElement;
     const startDate = document.querySelector("#startDate") as HTMLInputElement;
     const endDate = document.querySelector("#endDate") as HTMLInputElement;
