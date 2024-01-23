@@ -40,7 +40,7 @@ class HandleDataFromForm extends View {
       status: "pending",
     };
 
-    this.resetInputs([taskName, startDate, endDate]);
+    this.resetInputs([taskName, startDate, endDate, description]);
     func(taskData);
   }
 

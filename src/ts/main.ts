@@ -13,8 +13,14 @@ const checkLocalStorage = () => {
   taskView.updateTaskState(retrievedData);
 };
 
+const allowChangeTaskStatus = () => {
+  taskView.selectStatus();
+  taskView.changeStatusOfTask();
+};
+
 const init = () => {
   checkLocalStorage();
+  allowChangeTaskStatus();
   handleDataFromForm.handleForm(createNewTask);
   taskView.handleCategoryChange();
 };

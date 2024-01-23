@@ -2,17 +2,16 @@ import { TaskData } from "../types";
 import View from "./view";
 
 class TaskView extends View {
+  tasksState: TaskData[] = [];
+
   pending = document.querySelector("#pendingTasks") as HTMLDivElement;
   finished = document.querySelector("#finishedTasks") as HTMLDivElement;
   bin = document.querySelector("#moveToBin") as HTMLDivElement;
 
   curCategory = "pending";
 
-  tasksState: TaskData[] = [];
-
-  elementDrag: null | HTMLDivElement = null;
   selectedStatus: null | string = null;
-  dragStartListeners: Map<string, boolean> = new Map();
+  selectedElementId: null | string = null;
 
   addTask(data: TaskData) {
     this.tasksState = [...this.tasksState, data];
@@ -48,9 +47,7 @@ class TaskView extends View {
 
   taskMovingHandler(divElement: HTMLDivElement, id: string) {
     divElement.addEventListener("dragstart", () => {
-      this.elementDrag = divElement;
-      this.selectStatus();
-      this.changeStatusOfTask(id);
+      this.selectedElementId = id;
     });
   }
 
@@ -61,21 +58,19 @@ class TaskView extends View {
       { element: this.pending, status: "pending" },
     ].forEach((el) =>
       el.element.addEventListener("dragenter", () => {
-        if (this.elementDrag !== null) {
-          this.selectedStatus = el.status;
-        }
+        if (this.selectedElementId !== null) this.selectedStatus = el.status;
       })
     );
   }
 
-  changeStatusOfTask(id: string) {
-    if (this.dragStartListeners.get(id)) return;
-    document.body.addEventListener("dragend", () => this.taskStateMutation(id));
-    this.dragStartListeners.set(id, true);
+  changeStatusOfTask() {
+    document.body.addEventListener("dragend", () => {
+      if (this.selectedElementId !== null)
+        this.taskStateMutation(this.selectedElementId);
+    });
   }
 
   taskStateMutation(id: string) {
-    console.log(1);
     if (this.selectedStatus === null) return;
     const newDatas = this.tasksState.map((obj) => {
       if (obj.id === id && this.selectedStatus !== null) {
@@ -85,7 +80,7 @@ class TaskView extends View {
     });
     this.updateTaskState(newDatas);
     this.selectedStatus = null;
-    this.elementDrag = null;
+    this.selectedElementId = null;
   }
 
   handleCategoryChange() {
