@@ -9,24 +9,36 @@
   </head>
   <body>
     <header>
-      <div class="flex px-[2rem] py-[0.5rem]">
+      <div class="flex justify-between items-center px-[2rem] py-[1.5rem]">
         <h1
           class="text-[3.2rem] text-transparent bg-clip-text header_h1 w-min select-none"
         >
           Planner.io
         </h1>
+        <button
+          class="bg-[#7c48c1] text-[#FFFEF1] text-[2rem] font-[500] px-[2.5rem] py-[1rem] rounded-lg hover:opacity-90"
+          type="submit"
+          id="submit-form-btn"
+        >
+          Add Task
+        </button>
       </div>
     </header>
     <main>
       <section>
         <article class="flex justify-center">
-          <div class="flex flex-col items-center gap-[4rem]">
+          <div
+            class="flex flex-col items-center gap-[4rem] rounded-[0.5rem] p-[4rem] form-bg"
+          >
             <p class="text-[3.6rem]">Create Task</p>
-            <form class="grid grid-cols-3 gap-x-[4rem] gap-y-[2rem]">
+            <form
+              class="grid grid-cols-3 gap-x-[4rem] gap-y-[2rem]"
+              id="adding-form"
+            >
               <div class="flex flex-col gap-[1rem]">
                 <label
                   for="taskName"
-                  class="text-[1.4rem] relative left-[-.2rem]"
+                  class="text-[1.4rem] font-[600] relative left-[-.2rem]"
                   >Task</label
                 >
                 <input
@@ -43,7 +55,7 @@
               <div class="flex flex-col gap-[1rem]">
                 <label
                   for="startDate"
-                  class="text-[1.4rem] relative left-[-.2rem]"
+                  class="text-[1.4rem] font-[600] relative left-[-.2rem]"
                   >Start</label
                 >
                 <input
@@ -59,7 +71,7 @@
               <div class="flex flex-col gap-[1rem]">
                 <label
                   for="endDate"
-                  class="text-[1.4rem] relative left-[-.2rem]"
+                  class="text-[1.4rem] font-[600] relative left-[-.2rem]"
                   >End</label
                 >
                 <input
@@ -75,7 +87,7 @@
               <div class="flex flex-col gap-[1rem] col-start-2">
                 <label
                   for="description"
-                  class="text-[1.4rem] relative left-[-.2rem]"
+                  class="text-[1.4rem] font-[600] relative left-[-.2rem]"
                   >Description</label
                 >
                 <textarea
@@ -91,28 +103,31 @@
               <div
                 class="col-start-2 row-start-3 mt-[2rem] justify-self-center"
               >
-                <button
-                  class="bg-zinc-900 text-neutral-100 w-min px-[2.5rem] py-[1rem] rounded-lg hover:opacity-90"
+                <input
+                  class="bg-zinc-900 text-neutral-100 font-[500] w-min px-[2.5rem] py-[1rem] rounded-lg hover:opacity-90"
                   type="submit"
-                  id="submit-form-btn"
-                >
-                  Add
-                </button>
+                  value="Add"
+                />
               </div>
             </form>
           </div>
         </article>
         <article id="container"></article>
-        <article
-          class="w-[5rem] h-[5rem] bg-green-500"
-          id="pendingTasks"
-        ></article>
-        <article
-          class="w-[5rem] h-[5rem] bg-slate-500"
-          id="finishedTasks"
-        ></article>
-        <article class="w-[5rem] h-[5rem] bg-red-500" id="moveToBin"></article>
       </section>
+      <article>
+        <div class="w-[5rem] h-[5rem] bg-yellow-500" id="pendingTasks">
+          <img
+            src="./src/assets/contract-pending-line-svgrepo-com.svg"
+            alt="pending icon"
+          />
+        </div>
+        <div class="w-[5rem] h-[5rem] bg-green-500" id="finishedTasks">
+          <img src="./src/assets/task-svgrepo-com.svg" alt="finished icon" />
+        </div>
+        <div class="w-[5rem] h-[5rem] bg-red-500" id="moveToBin">
+          <img src="./src/assets/bin-svgrepo-com.svg" alt="bin icon" />
+        </div>
+      </article>
       <footer></footer>
     </main>
     <div class="background_container--animation">
