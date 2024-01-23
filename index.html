@@ -11,7 +11,7 @@
     <header>
       <div class="flex justify-between items-center px-[2rem] py-[1.5rem]">
         <h1
-          class="text-[3.2rem] text-transparent bg-clip-text header_h1 w-min select-none"
+          class="text-[3.2rem] text-transparent bg-clip-text header_h1 w-min select-none hover:cursor-pointer"
         >
           Planner.io
         </h1>
@@ -27,10 +27,10 @@
     <main>
       <section>
         <article
-          class="absolute left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%] flex justify-center"
+          class="absolute left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%] flex justify-center z-[1]"
         >
           <div
-            class="flex flex-col items-center gap-[4rem] rounded-[0.5rem] p-[4rem] form-bg"
+            class="relative z-[1] flex flex-col items-center gap-[4rem] rounded-[0.5rem] p-[4rem] form-bg"
           >
             <p class="text-[3.6rem]">Create Task</p>
             <form
@@ -50,7 +50,7 @@
                   id="taskName"
                 />
                 <span
-                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-50"
+                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
                   >Type your task name</span
                 >
               </div>
@@ -66,7 +66,7 @@
                   id="startDate"
                 />
                 <span
-                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-50"
+                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
                   >Select start date</span
                 >
               </div>
@@ -82,7 +82,7 @@
                   id="endDate"
                 />
                 <span
-                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-50"
+                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
                   >Select end date</span
                 >
               </div>
@@ -98,7 +98,7 @@
                   class="bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow placeholder:text-black placeholder:opacity-50"
                 ></textarea>
                 <span
-                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-50"
+                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
                   >Describe your task</span
                 >
               </div>
@@ -113,6 +113,12 @@
               </div>
             </form>
           </div>
+          <div class="absolute w-[100%] h-[100%] backdrop-blur-[0.4rem]"></div>
+          <img
+            class="absolute z-[1] top-[1rem] right-[1rem] w-[4.2rem] hover:cursor-pointer"
+            src="./src/assets/close-outline.svg"
+            alt="close icon"
+          />
         </article>
         <article id="container" class="flex flex-col items-center"></article>
       </section>
@@ -120,7 +126,7 @@
         class="absolute top-[50%] left-[0%] translate-y-[-50%] rounded-r-[1.5rem] overflow-hidden hover:"
       >
         <div
-          class="w-[8rem] p-[1rem] bg-yellow-500 cursor-pointer"
+          class="w-[5rem] p-[1rem] bg-[#ffd43b] cursor-pointer"
           id="pendingTasks"
         >
           <img
@@ -129,12 +135,15 @@
           />
         </div>
         <div
-          class="w-[8rem] p-[1rem] bg-green-500 cursor-pointer"
+          class="w-[5rem] p-[1rem] bg-[#69db7c] cursor-pointer"
           id="finishedTasks"
         >
           <img src="./src/assets/task-svgrepo-com.svg" alt="finished icon" />
         </div>
-        <div class="w-[8rem] p-[1rem] bg-red-500 cursor-pointer" id="moveToBin">
+        <div
+          class="w-[5rem] p-[1rem] bg-[#ff8787] cursor-pointer"
+          id="moveToBin"
+        >
           <img src="./src/assets/bin-svgrepo-com.svg" alt="bin icon" />
         </div>
       </article>
