@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -18,7 +19,7 @@ html {
 
 body {
   min-height: 100svh;
-  font-family: sans-serif;
+  font-family: "Noto Sans", sans-serif;
   background: no-repeat
     linear-gradient(to right bottom, #cfc6a2, rgb(218, 206, 240));
   font-size: 1.6rem;
@@ -27,9 +28,22 @@ body {
 
 .header_h1 {
   font-family: "Ubuntu Mono", monospace;
-  background-image: linear-gradient(to right, rgb(124 72 193), rgb(91 41 157));
+  background-image: linear-gradient(
+    to right,
+    rgb(124, 72, 193),
+    rgb(91 41 157)
+  );
 }
 
 .input-shadow {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.form-bg {
+  background-image: linear-gradient(
+    to right top,
+    rgba(80, 80, 80, 0.55),
+    rgba(80, 80, 80, 0.25)
+  );
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
