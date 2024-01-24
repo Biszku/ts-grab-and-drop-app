@@ -39,7 +39,7 @@ class TaskView extends View {
     const { id, taskName, description, startDate, endDate, status } = data;
     const div = document.createElement("div");
     div.setAttribute("draggable", "true");
-    div.classList.add("cursor-grab", "select-none", "relative");
+    div.classList.add("cursor-grab", "select-none");
     div.textContent = `${taskName},${description},${startDate},${endDate},${status}`;
     this.taskMovingHandler(div, id);
     return div;
@@ -58,6 +58,7 @@ class TaskView extends View {
       { element: this.pending, status: "pending" },
     ].forEach((el) =>
       el.element.addEventListener("dragenter", () => {
+        console.log(1);
         if (this.selectedElementId !== null) this.selectedStatus = el.status;
       })
     );
@@ -97,7 +98,20 @@ class TaskView extends View {
 
   categoryChange(category: string) {
     this.curCategory = category;
+    this.renderActiveCat();
     this.renderTask();
+  }
+
+  renderActiveCat() {
+    [
+      { element: this.pending, category: "pending" },
+      { element: this.finished, category: "finished" },
+      { element: this.bin, category: "bin" },
+    ].forEach((obj) => {
+      obj.element.classList.remove("active-cat");
+      if (this.curCategory === obj.category)
+        obj.element.classList.add("active-cat");
+    });
   }
 }
 

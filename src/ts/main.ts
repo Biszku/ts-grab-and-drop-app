@@ -18,9 +18,15 @@ const allowChangeTaskStatus = () => {
   taskView.changeStatusOfTask();
 };
 
+const formVisibilityControl = () => {
+  handleDataFromForm.handleFormAppearance();
+};
+
 const init = () => {
   checkLocalStorage();
   allowChangeTaskStatus();
+  formVisibilityControl();
+  taskView.renderActiveCat();
   handleDataFromForm.handleForm(createNewTask);
   taskView.handleCategoryChange();
 };
