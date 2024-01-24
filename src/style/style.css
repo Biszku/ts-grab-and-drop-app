@@ -47,3 +47,66 @@ body {
   );
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+.active-cat {
+  width: 6rem;
+}
+
+.backdropAppearance {
+  animation: backdropappearance 0.3s ease forwards;
+}
+.backdropDisappearance {
+  animation: backdropdisappearance 0.3s ease forwards;
+}
+
+.formAppearance {
+  animation: formappearance 0.3s ease forwards;
+}
+.formDisappearance {
+  animation: formdisappearance 0.3s ease forwards;
+}
+
+@keyframes formappearance {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    visibility: visible;
+  }
+}
+
+@keyframes formdisappearance {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+    visibility: hidden;
+  }
+}
+
+@keyframes backdropappearance {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes backdropdisappearance {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
