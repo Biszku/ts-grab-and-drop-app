@@ -4,6 +4,12 @@ import View from "./view";
 class TaskView extends View {
   tasksState: TaskData[] = [];
 
+  pendingTasksCat = document.querySelector("#pendingTasksCat") as HTMLLIElement;
+  finishedTasksCat = document.querySelector(
+    "#finishedTasksCat"
+  ) as HTMLLIElement;
+  binTasksCat = document.querySelector("#binTasksCat") as HTMLLIElement;
+
   pending = document.querySelector("#pendingTasks") as HTMLDivElement;
   finished = document.querySelector("#finishedTasks") as HTMLDivElement;
   bin = document.querySelector("#moveToBin") as HTMLDivElement;
@@ -58,7 +64,16 @@ class TaskView extends View {
       { element: this.pending, status: "pending" },
     ].forEach((el) =>
       el.element.addEventListener("dragenter", () => {
-        console.log(1);
+        if (this.selectedElementId !== null) this.selectedStatus = el.status;
+      })
+    );
+
+    [
+      { element: this.pendingTasksCat, status: "pending" },
+      { element: this.finishedTasksCat, status: "finished" },
+      { element: this.binTasksCat, status: "bin" },
+    ].forEach((el) =>
+      el.element.addEventListener("dragenter", () => {
         if (this.selectedElementId !== null) this.selectedStatus = el.status;
       })
     );
@@ -89,6 +104,16 @@ class TaskView extends View {
       { element: this.pending, category: "pending" },
       { element: this.finished, category: "finished" },
       { element: this.bin, category: "bin" },
+    ].forEach((obj) =>
+      obj.element.addEventListener("click", () =>
+        this.categoryChange(obj.category)
+      )
+    );
+
+    [
+      { element: this.pendingTasksCat, category: "pending" },
+      { element: this.finishedTasksCat, category: "finished" },
+      { element: this.binTasksCat, category: "bin" },
     ].forEach((obj) =>
       obj.element.addEventListener("click", () =>
         this.categoryChange(obj.category)
