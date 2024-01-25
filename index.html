@@ -25,7 +25,7 @@
       </div>
     </header>
     <main class="flex-1 flex flex-col justify-center">
-      <section class="flex flex-col flex-1">
+      <section class="flex-1 flex flex-col justify-center items-center">
         <article
           class="absolute left-[50%] top-[50%] translate-y-[-100%] translate-x-[-50%] flex justify-center z-[1] o-0 invisible"
           id="form-section"
@@ -87,7 +87,9 @@
                   >Select end date</span
                 >
               </div>
-              <div class="flex flex-col gap-[1rem] col-start-2">
+              <div
+                class="flex flex-col gap-[1rem] col-start-2 col-end-4 translate-x-[-25%]"
+              >
                 <label
                   for="description"
                   class="text-[1.4rem] font-[600] relative left-[-.2rem]"
@@ -123,9 +125,41 @@
           />
         </article>
         <article
-          id="container"
-          class="flex flex-col items-center flex-1 justify-center"
-        ></article>
+          class="relative flex flex-col w-[70%] bg-[#b3ab8a99] rounded-[0.5rem] px-[2rem] py-[1rem]"
+        >
+          <div class="w-[100%]">
+            <ul class="flex text-[2.6rem] font-[500] gap-[3rem]">
+              <li class="flex items-center gap-[0.5rem] hover:cursor-pointer">
+                <img
+                  src="./src/assets/contract-pending-line-svgrepo-com.svg"
+                  alt="pending icon"
+                  class="w-[2.4rem]"
+                />
+                Pending
+              </li>
+              <li class="flex items-center gap-[0.5rem] hover:cursor-pointer">
+                <img
+                  src="./src/assets/task-svgrepo-com.svg"
+                  alt="finished icon"
+                  class="w-[2.4rem]"
+                />
+                Finished
+              </li>
+              <li class="flex items-center gap-[0.5rem] hover:cursor-pointer">
+                <img
+                  src="./src/assets/bin-cancel-close-delete-garbage-remove-svgrepo-com.svg"
+                  alt="bin icon"
+                  class="w-[2.4rem]"
+                />
+                Bin
+              </li>
+            </ul>
+          </div>
+          <div id="container" class="flex flex-col"></div>
+          <div
+            class="absolute w-[100%] h-[100%] backdrop-blur-[0.4rem] z-[-1]"
+          ></div>
+        </article>
         <div
           class="absolute top-[0%] left-[0%] w-[100%] h-[100%] o-0 invisible bg-[#00000044]"
           id="form-backdrop"
@@ -163,10 +197,15 @@
         <p class="p-[1rem] text-slate-50">2024 &copy; Biszku</p>
       </footer>
     </main>
-    <div class="background_container--animation">
-      <div class="triangle"></div>
-      <div class="circle"></div>
-      <div class="square"></div>
+    <div
+      class="absolute h-[100%] w-[100%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] grid place-items-center z-[-2] background--animation"
+    >
+      <div
+        class="absolute w-[25%] translate-y-[125%] aspect-square border-[1rem] border-[#a69e8240]"
+      ></div>
+      <div
+        class="absolute w-[25%] translate-y-[-125%] aspect-square rounded-full border-[1rem] border-[#a69e8240]"
+      ></div>
     </div>
   </body>
 </html>
