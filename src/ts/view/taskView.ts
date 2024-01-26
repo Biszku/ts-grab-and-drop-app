@@ -65,12 +65,21 @@ class TaskView extends View {
       "select-none",
       "hover:bg-[#b5af9550]",
       "px-[3rem]",
-      "py-[2.5rem]"
+      "py-[2.5rem]",
+      "grid",
+      "grid-cols-5"
     );
 
-    if (index !== 0)
+    if (index !== 0) {
       div.classList.add("border-b-[0.2rem]", "border-[#00000020]");
-    div.textContent = `${status},${taskName},${startDate},${endDate},${description}`;
+    }
+
+    [status, taskName, startDate, endDate].forEach((value) => {
+      const span = document.createElement("span");
+      span.textContent = value;
+      span.classList.add("font-medium");
+      div.appendChild(span);
+    });
     this.taskMovingHandler(div, id);
     return div;
   }

@@ -131,49 +131,95 @@
             class="relative flex-col w-[70%] bg-[#c9c2a699] rounded-[0.5rem] border-[0.2rem] border-[#00000020]"
           >
             <div
-              class="flex justify-between items-center [100%] px-[2rem] py-[1rem] border-b-[0.2rem] border-[#00000020] hover:bg-[#b5af9550]"
+              class="flex flex-col border-b-[0.2rem] border-[#00000020] hover:bg-[#b5af9550]"
             >
-              <ul class="flex text-[2.6rem] font-[500] gap-[3rem]">
-                <li
-                  class="flex items-center gap-[0.5rem] hover:cursor-pointer"
-                  id="pendingTasksCat"
+              <div
+                class="flex justify-between items-center [100%] px-[2rem] py-[1rem]"
+              >
+                <ul class="flex text-[2.6rem] font-[500] gap-[3rem]">
+                  <li
+                    class="flex items-center gap-[0.5rem] hover:cursor-pointer"
+                    id="pendingTasksCat"
+                  >
+                    <img
+                      src="./src/assets/contract-pending-line-svgrepo-com.svg"
+                      alt="pending icon"
+                      class="w-[2.4rem]"
+                    />
+                    Pending
+                  </li>
+                  <li
+                    class="flex items-center gap-[0.5rem] hover:cursor-pointer"
+                    id="finishedTasksCat"
+                  >
+                    <img
+                      src="./src/assets/task-svgrepo-com.svg"
+                      alt="finished icon"
+                      class="w-[2.4rem]"
+                    />
+                    Finished
+                  </li>
+                  <li
+                    class="flex items-center gap-[0.5rem] hover:cursor-pointer"
+                    id="binTasksCat"
+                  >
+                    <img
+                      src="./src/assets/bin-cancel-close-delete-garbage-remove-svgrepo-com.svg"
+                      alt="bin icon"
+                      class="w-[2.4rem]"
+                    />
+                    Bin
+                  </li>
+                </ul>
+                <input
+                  type="text"
+                  id="filterTask"
+                  class="w-[30%] bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow"
+                  placeholder="Filter task..."
+                />
+              </div>
+              <div class="px-[3rem] py-[1rem] grid grid-cols-5">
+                <div
+                  class="flex items-center gap-[0.8rem] hover:cursor-pointer"
                 >
+                  <span class="opacity-75 hover:cursor-pointer">Status</span>
                   <img
-                    src="./src/assets/contract-pending-line-svgrepo-com.svg"
-                    alt="pending icon"
-                    class="w-[2.4rem]"
+                    src="./src/assets/sort-vertical-svgrepo-com.svg"
+                    alt="sort icon"
+                    class="w-[1.8rem]"
                   />
-                  Pending
-                </li>
-                <li
-                  class="flex items-center gap-[0.5rem] hover:cursor-pointer"
-                  id="finishedTasksCat"
+                </div>
+                <div
+                  class="flex items-center gap-[0.8rem] hover:cursor-pointer"
                 >
+                  <span class="opacity-75">Task name</span>
                   <img
-                    src="./src/assets/task-svgrepo-com.svg"
-                    alt="finished icon"
-                    class="w-[2.4rem]"
+                    src="./src/assets/sort-vertical-svgrepo-com.svg"
+                    alt="sort icon"
+                    class="w-[1.8rem]"
                   />
-                  Finished
-                </li>
-                <li
-                  class="flex items-center gap-[0.5rem] hover:cursor-pointer"
-                  id="binTasksCat"
+                </div>
+                <div
+                  class="flex items-center gap-[0.8rem] hover:cursor-pointer"
                 >
+                  <span class="opacity-75">Start date</span>
                   <img
-                    src="./src/assets/bin-cancel-close-delete-garbage-remove-svgrepo-com.svg"
-                    alt="bin icon"
-                    class="w-[2.4rem]"
+                    src="./src/assets/sort-vertical-svgrepo-com.svg"
+                    alt="sort icon"
+                    class="w-[1.8rem]"
                   />
-                  Bin
-                </li>
-              </ul>
-              <input
-                type="text"
-                id="filterTask"
-                class="w-[30%] bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow"
-                placeholder="Filter task..."
-              />
+                </div>
+                <div
+                  class="flex items-center gap-[0.8rem] hover:cursor-pointer"
+                >
+                  <span class="opacity-75">End date</span>
+                  <img
+                    src="./src/assets/sort-vertical-svgrepo-com.svg"
+                    alt="sort icon"
+                    class="w-[1.8rem]"
+                  />
+                </div>
+              </div>
             </div>
             <div id="container" class="flex flex-col"></div>
             <div
