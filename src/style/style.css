@@ -20,11 +20,15 @@ html {
 body {
   min-height: 100svh;
   font-family: "Noto Sans", sans-serif;
-  background: no-repeat
-    linear-gradient(to right bottom, #cfc6a2, rgb(218, 206, 240));
+  background-color: black;
   font-size: 1.6rem;
   color: #1a1a1a;
   overflow: hidden;
+}
+
+.container-bg {
+  background: no-repeat
+    linear-gradient(to right bottom, #cfc6a2, rgb(218, 206, 240));
 }
 
 .header_h1 {

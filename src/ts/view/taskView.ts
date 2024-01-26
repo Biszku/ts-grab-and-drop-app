@@ -38,15 +38,39 @@ class TaskView extends View {
     const filteredTasks = this.tasksState.filter(
       (task) => task.status === this.curCategory
     );
-    filteredTasks.forEach((data) => this.render(this.renderMarkUp(data)));
+    if (filteredTasks.length === 0) this.render(this.renderNoResult());
+    filteredTasks.forEach((data, index) =>
+      this.render(this.renderMarkUp(data, index))
+    );
   }
 
-  renderMarkUp(data: TaskData) {
+  renderNoResult() {
+    const p = document.createElement("p");
+    p.classList.add(
+      "text-center",
+      "text-[1.8rem]",
+      "py-[8rem]",
+      "hover:bg-[#b5af9550]"
+    );
+    p.textContent = `No results.`;
+    return p;
+  }
+
+  renderMarkUp(data: TaskData, index: number) {
     const { id, taskName, description, startDate, endDate, status } = data;
     const div = document.createElement("div");
     div.setAttribute("draggable", "true");
-    div.classList.add("cursor-grab", "select-none");
-    div.textContent = `${taskName},${description},${startDate},${endDate},${status}`;
+    div.classList.add(
+      "cursor-grab",
+      "select-none",
+      "hover:bg-[#b5af9550]",
+      "px-[3rem]",
+      "py-[2.5rem]"
+    );
+
+    if (index !== 0)
+      div.classList.add("border-b-[0.2rem]", "border-[#00000020]");
+    div.textContent = `${status},${taskName},${startDate},${endDate},${description}`;
     this.taskMovingHandler(div, id);
     return div;
   }

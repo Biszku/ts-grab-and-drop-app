@@ -7,214 +7,226 @@
     <link rel="stylesheet" href="/src/style/style.css" />
     <script type="module" defer src="/src/ts/main.ts"></script>
   </head>
-  <body class="flex flex-col">
-    <header>
-      <div class="flex justify-between items-center px-[2rem] py-[1.5rem]">
-        <h1
-          class="text-[3.2rem] text-transparent bg-clip-text header_h1 w-min select-none hover:cursor-pointer"
-        >
-          Planner.io
-        </h1>
-        <button
-          class="bg-[#7c48c1] text-[#FFFEF1] text-[1.8rem] font-[500] px-[2.5rem] py-[1rem] rounded-lg hover:opacity-90"
-          type="submit"
-          id="submit-form-btn"
-        >
-          Add Task
-        </button>
-      </div>
-    </header>
-    <main class="flex-1 flex flex-col justify-center">
-      <section class="flex-1 flex flex-col justify-center items-center">
-        <article
-          class="absolute left-[50%] top-[50%] translate-y-[-100%] translate-x-[-50%] flex justify-center z-[1] o-0 invisible"
-          id="form-section"
-        >
-          <div
-            class="relative z-[1] flex flex-col items-center gap-[4rem] rounded-[0.5rem] p-[4rem] form-bg"
+  <body>
+    <div class="flex flex-col min-h-[100svh] container-bg">
+      <header class="z-2">
+        <div class="flex justify-between items-center px-[2rem] py-[1.5rem]">
+          <h1
+            class="text-[3.2rem] text-transparent bg-clip-text header_h1 w-min select-none hover:cursor-pointer"
           >
-            <p class="text-[3.6rem]">Create Task</p>
-            <form
-              class="grid grid-cols-3 gap-x-[4rem] gap-y-[2rem]"
-              id="adding-form"
+            Planner.io
+          </h1>
+          <button
+            class="bg-[#7c48c1] text-[#FFFEF1] text-[1.8rem] font-[500] px-[2.5rem] py-[1rem] rounded-lg hover:opacity-90"
+            type="submit"
+            id="submit-form-btn"
+          >
+            Add Task
+          </button>
+        </div>
+      </header>
+      <main class="flex-1 flex flex-col justify-center">
+        <section class="flex-1 flex flex-col justify-center items-center">
+          <article
+            class="absolute left-[50%] top-[50%] translate-y-[-100%] translate-x-[-50%] flex justify-center z-[3] o-0 invisible"
+            id="form-section"
+          >
+            <div
+              class="relative z-[1] flex flex-col items-center gap-[4rem] rounded-[0.5rem] p-[4rem] form-bg"
             >
-              <div class="flex flex-col gap-[1rem]">
-                <label
-                  for="taskName"
-                  class="text-[1.4rem] font-[600] relative left-[-.2rem]"
-                  >Task</label
-                >
-                <input
-                  class="bg-[#e3e3e3] border-gray-600 border-[0.1rem] grow rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow placeholder:text-black placeholder:opacity-50"
-                  placeholder="Learn react"
-                  type="text"
-                  id="taskName"
-                />
-                <span
-                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
-                  >Type your task name</span
-                >
-              </div>
-              <div class="flex flex-col gap-[1rem]">
-                <label
-                  for="startDate"
-                  class="text-[1.4rem] font-[600] relative left-[-.2rem]"
-                  >Start</label
-                >
-                <input
-                  class="bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow"
-                  type="date"
-                  id="startDate"
-                />
-                <span
-                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
-                  >Select start date</span
-                >
-              </div>
-              <div class="flex flex-col gap-[1rem]">
-                <label
-                  for="endDate"
-                  class="text-[1.4rem] font-[600] relative left-[-.2rem]"
-                  >End</label
-                >
-                <input
-                  class="bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow"
-                  type="date"
-                  id="endDate"
-                />
-                <span
-                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
-                  >Select end date</span
-                >
-              </div>
-              <div
-                class="flex flex-col gap-[1rem] col-start-2 col-end-4 translate-x-[-25%]"
+              <p class="text-[3.6rem]">Create Task</p>
+              <form
+                class="grid grid-cols-3 gap-x-[4rem] gap-y-[2rem]"
+                id="adding-form"
               >
-                <label
-                  for="description"
-                  class="text-[1.4rem] font-[600] relative left-[-.2rem]"
-                  >Description</label
+                <div class="flex flex-col gap-[1rem]">
+                  <label
+                    for="taskName"
+                    class="text-[1.4rem] font-[600] relative left-[-.2rem]"
+                    >Task</label
+                  >
+                  <input
+                    class="bg-[#e3e3e3] border-gray-600 border-[0.1rem] grow rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow placeholder:text-black placeholder:opacity-50"
+                    placeholder="Learn react"
+                    type="text"
+                    id="taskName"
+                  />
+                  <span
+                    class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
+                    >Type your task name</span
+                  >
+                </div>
+                <div class="flex flex-col gap-[1rem]">
+                  <label
+                    for="startDate"
+                    class="text-[1.4rem] font-[600] relative left-[-.2rem]"
+                    >Start</label
+                  >
+                  <input
+                    class="bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow"
+                    type="date"
+                    id="startDate"
+                  />
+                  <span
+                    class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
+                    >Select start date</span
+                  >
+                </div>
+                <div class="flex flex-col gap-[1rem]">
+                  <label
+                    for="endDate"
+                    class="text-[1.4rem] font-[600] relative left-[-.2rem]"
+                    >End</label
+                  >
+                  <input
+                    class="bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow"
+                    type="date"
+                    id="endDate"
+                  />
+                  <span
+                    class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
+                    >Select end date</span
+                  >
+                </div>
+                <div
+                  class="flex flex-col gap-[1rem] col-start-2 col-end-4 translate-x-[-25%]"
                 >
-                <textarea
-                  id="description"
-                  placeholder="I have to learn..."
-                  class="bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow placeholder:text-black placeholder:opacity-50"
-                ></textarea>
-                <span
-                  class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
-                  >Describe your task</span
+                  <label
+                    for="description"
+                    class="text-[1.4rem] font-[600] relative left-[-.2rem]"
+                    >Description</label
+                  >
+                  <textarea
+                    id="description"
+                    placeholder="I have to learn..."
+                    class="bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow placeholder:text-black placeholder:opacity-50"
+                  ></textarea>
+                  <span
+                    class="text-[1.4rem] relative left-[-.2rem] text-black opacity-60"
+                    >Describe your task</span
+                  >
+                </div>
+                <div
+                  class="col-start-2 row-start-3 mt-[2rem] justify-self-center"
                 >
-              </div>
-              <div
-                class="col-start-2 row-start-3 mt-[2rem] justify-self-center"
-              >
-                <input
-                  class="bg-zinc-900 text-neutral-100 font-[500] w-min px-[2.5rem] py-[1rem] rounded-lg hover:opacity-90"
-                  type="submit"
-                  value="Add"
-                />
-              </div>
-            </form>
-          </div>
-          <div class="absolute w-[100%] h-[100%] backdrop-blur-[0.4rem]"></div>
-          <img
-            class="absolute z-[1] top-[1rem] right-[1rem] w-[4.2rem] hover:cursor-pointer"
-            src="./src/assets/close-outline.svg"
-            alt="close icon"
-            id="closeForm"
-          />
-        </article>
-        <article
-          class="relative flex flex-col w-[70%] bg-[#b3ab8a99] rounded-[0.5rem] px-[2rem] py-[1rem]"
-        >
-          <div class="w-[100%]">
-            <ul class="flex text-[2.6rem] font-[500] gap-[3rem]">
-              <li
-                class="flex items-center gap-[0.5rem] hover:cursor-pointer"
-                id="pendingTasksCat"
-              >
-                <img
-                  src="./src/assets/contract-pending-line-svgrepo-com.svg"
-                  alt="pending icon"
-                  class="w-[2.4rem]"
-                />
-                Pending
-              </li>
-              <li
-                class="flex items-center gap-[0.5rem] hover:cursor-pointer"
-                id="finishedTasksCat"
-              >
-                <img
-                  src="./src/assets/task-svgrepo-com.svg"
-                  alt="finished icon"
-                  class="w-[2.4rem]"
-                />
-                Finished
-              </li>
-              <li
-                class="flex items-center gap-[0.5rem] hover:cursor-pointer"
-                id="binTasksCat"
-              >
-                <img
-                  src="./src/assets/bin-cancel-close-delete-garbage-remove-svgrepo-com.svg"
-                  alt="bin icon"
-                  class="w-[2.4rem]"
-                />
-                Bin
-              </li>
-            </ul>
-          </div>
-          <div id="container" class="flex flex-col"></div>
+                  <input
+                    class="bg-zinc-900 text-neutral-100 font-[500] w-min px-[2.5rem] py-[1rem] rounded-lg hover:opacity-90"
+                    type="submit"
+                    value="Add"
+                  />
+                </div>
+              </form>
+            </div>
+            <div
+              class="absolute w-[100%] h-[100%] backdrop-blur-[0.4rem]"
+            ></div>
+            <img
+              class="absolute z-[3] top-[1rem] right-[1rem] w-[4.2rem] hover:cursor-pointer"
+              src="./src/assets/close-outline.svg"
+              alt="close icon"
+              id="closeForm"
+            />
+          </article>
+          <article
+            class="relative flex flex-col w-[70%] bg-[#c9c2a699] rounded-[0.5rem] border-[0.2rem] border-[#00000020] z-[2]"
+          >
+            <div
+              class="flex justify-between items-center [100%] px-[2rem] py-[1rem] border-b-[0.2rem] border-[#00000020] hover:bg-[#b5af9550]"
+            >
+              <ul class="flex text-[2.6rem] font-[500] gap-[3rem]">
+                <li
+                  class="flex items-center gap-[0.5rem] hover:cursor-pointer"
+                  id="pendingTasksCat"
+                >
+                  <img
+                    src="./src/assets/contract-pending-line-svgrepo-com.svg"
+                    alt="pending icon"
+                    class="w-[2.4rem]"
+                  />
+                  Pending
+                </li>
+                <li
+                  class="flex items-center gap-[0.5rem] hover:cursor-pointer"
+                  id="finishedTasksCat"
+                >
+                  <img
+                    src="./src/assets/task-svgrepo-com.svg"
+                    alt="finished icon"
+                    class="w-[2.4rem]"
+                  />
+                  Finished
+                </li>
+                <li
+                  class="flex items-center gap-[0.5rem] hover:cursor-pointer"
+                  id="binTasksCat"
+                >
+                  <img
+                    src="./src/assets/bin-cancel-close-delete-garbage-remove-svgrepo-com.svg"
+                    alt="bin icon"
+                    class="w-[2.4rem]"
+                  />
+                  Bin
+                </li>
+              </ul>
+              <input
+                type="text"
+                id="filterTask"
+                class="w-[30%] bg-[#e3e3e3] border-[0.1rem] border-gray-600 rounded-[0.3rem] px-[1rem] py-[0.5rem] input-shadow"
+                placeholder="Filter task..."
+              />
+            </div>
+            <div id="container" class="flex flex-col"></div>
+            <div
+              class="absolute w-[100%] h-[100%] backdrop-blur-[0.4rem] z-[-1]"
+            ></div>
+          </article>
           <div
-            class="absolute w-[100%] h-[100%] backdrop-blur-[0.4rem] z-[-1]"
+            class="absolute top-[0%] left-[0%] w-[100%] h-[100%] o-0 invisible bg-[#00000044] z-[2]"
+            id="form-backdrop"
           ></div>
+        </section>
+        <article
+          class="absolute top-[50%] left-[0%] translate-y-[-50%] overflow-hidden z-[2]"
+        >
+          <div
+            class="w-[5rem] p-[1rem] bg-[#ffd43b] cursor-pointer rounded-tr-lg"
+            id="pendingTasks"
+          >
+            <img
+              src="./src/assets/contract-pending-line-svgrepo-com.svg"
+              alt="pending icon"
+            />
+          </div>
+          <div
+            class="w-[5rem] p-[1rem] bg-[#69db7c] cursor-pointer"
+            id="finishedTasks"
+          >
+            <img src="./src/assets/task-svgrepo-com.svg" alt="finished icon" />
+          </div>
+          <div
+            class="w-[5rem] p-[1rem] bg-[#ff8787] rounded-br-lg cursor-pointer"
+            id="moveToBin"
+          >
+            <img
+              src="./src/assets/bin-cancel-close-delete-garbage-remove-svgrepo-com.svg"
+              alt="bin icon"
+            />
+          </div>
         </article>
-        <div
-          class="absolute top-[0%] left-[0%] w-[100%] h-[100%] o-0 invisible bg-[#00000044]"
-          id="form-backdrop"
-        ></div>
-      </section>
-      <article
-        class="absolute top-[50%] left-[0%] translate-y-[-50%] overflow-hidden hover:"
+        <footer class="bg-stone-900 mt-auto z-[2]">
+          <p class="p-[1rem] text-slate-50">2024 &copy; Biszku</p>
+        </footer>
+      </main>
+      <div
+        class="absolute h-[100%] w-[100%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] grid place-items-center z-[1] background--animation"
       >
         <div
-          class="w-[5rem] p-[1rem] bg-[#ffd43b] cursor-pointer rounded-tr-lg"
-          id="pendingTasks"
-        >
-          <img
-            src="./src/assets/contract-pending-line-svgrepo-com.svg"
-            alt="pending icon"
-          />
-        </div>
+          class="absolute w-[25%] translate-y-[125%] aspect-square border-[1rem] border-[#a69e8240]"
+        ></div>
         <div
-          class="w-[5rem] p-[1rem] bg-[#69db7c] cursor-pointer"
-          id="finishedTasks"
-        >
-          <img src="./src/assets/task-svgrepo-com.svg" alt="finished icon" />
-        </div>
-        <div
-          class="w-[5rem] p-[1rem] bg-[#ff8787] rounded-br-lg cursor-pointer"
-          id="moveToBin"
-        >
-          <img
-            src="./src/assets/bin-cancel-close-delete-garbage-remove-svgrepo-com.svg"
-            alt="bin icon"
-          />
-        </div>
-      </article>
-      <footer class="bg-stone-900 mt-auto">
-        <p class="p-[1rem] text-slate-50">2024 &copy; Biszku</p>
-      </footer>
-    </main>
-    <div
-      class="absolute h-[100%] w-[100%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] grid place-items-center z-[-2] background--animation"
-    >
-      <div
-        class="absolute w-[25%] translate-y-[125%] aspect-square border-[1rem] border-[#a69e8240]"
-      ></div>
-      <div
-        class="absolute w-[25%] translate-y-[-125%] aspect-square rounded-full border-[1rem] border-[#a69e8240]"
-      ></div>
+          class="absolute w-[25%] translate-y-[-125%] aspect-square rounded-full border-[1rem] border-[#a69e8240]"
+        ></div>
+      </div>
     </div>
   </body>
 </html>
