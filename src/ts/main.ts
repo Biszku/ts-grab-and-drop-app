@@ -29,6 +29,7 @@ const init = () => {
   taskView.renderActiveCat();
   handleDataFromForm.handleForm(createNewTask);
   taskView.handleCategoryChange();
+  taskView.handleFilterForm();
 };
 
 init();

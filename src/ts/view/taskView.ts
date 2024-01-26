@@ -3,12 +3,15 @@ import View from "./view";
 
 class TaskView extends View {
   tasksState: TaskData[] = [];
+  taskFilter: string = "";
 
   pendingTasksCat = document.querySelector("#pendingTasksCat") as HTMLLIElement;
   finishedTasksCat = document.querySelector(
     "#finishedTasksCat"
   ) as HTMLLIElement;
   binTasksCat = document.querySelector("#binTasksCat") as HTMLLIElement;
+
+  filterTaskForm = document.querySelector("#filterTask") as HTMLInputElement;
 
   pending = document.querySelector("#pendingTasks") as HTMLDivElement;
   finished = document.querySelector("#finishedTasks") as HTMLDivElement;
@@ -36,9 +39,12 @@ class TaskView extends View {
   renderTask() {
     this.container.innerHTML = "";
     const filteredTasks = this.tasksState.filter(
-      (task) => task.status === this.curCategory
+      (task) =>
+        task.status === this.curCategory &&
+        task.taskName.includes(this.taskFilter)
     );
     if (filteredTasks.length === 0) this.render(this.renderNoResult());
+
     filteredTasks.forEach((data, index) =>
       this.render(this.renderMarkUp(data, index))
     );
@@ -169,6 +175,13 @@ class TaskView extends View {
       obj.element.classList.remove("active-cat");
       if (this.curCategory === obj.category)
         obj.element.classList.add("active-cat");
+    });
+  }
+
+  handleFilterForm() {
+    this.filterTaskForm.addEventListener("input", () => {
+      this.taskFilter = this.filterTaskForm.value;
+      this.renderTask();
     });
   }
 }
