@@ -2,8 +2,23 @@ import { TaskData } from "../types";
 import View from "./view";
 
 class TaskView extends View {
+  [key: string]: any;
   tasksState: TaskData[] = [];
   taskFilter: string = "";
+
+  statusFilter: string | null = null;
+  taskNameFilter: string | null = null;
+  startDateFilter: string | null = null;
+  endDateFilter: string | null = null;
+
+  statusElement = document.querySelector("#statusElement") as HTMLDivElement;
+  taskNameElement = document.querySelector(
+    "#taskNameElement"
+  ) as HTMLDivElement;
+  startDateElement = document.querySelector(
+    "#startDateElement"
+  ) as HTMLDivElement;
+  endDateElement = document.querySelector("#endDateElement") as HTMLDivElement;
 
   pendingTasksCat = document.querySelector("#pendingTasksCat") as HTMLLIElement;
   finishedTasksCat = document.querySelector(
@@ -182,6 +197,35 @@ class TaskView extends View {
     this.filterTaskForm.addEventListener("input", () => {
       this.taskFilter = this.filterTaskForm.value;
       this.renderTask();
+    });
+  }
+
+  handleFilterByData() {
+    [
+      {
+        element: this.statusElement,
+        filterType: "statusFilter",
+      },
+      {
+        element: this.taskNameElement,
+        filterType: "taskNameFilter",
+      },
+      {
+        element: this.startDateElement,
+        filterType: "startDateFilter",
+      },
+      {
+        element: this.endDateElement,
+        filterType: "endDateFilter",
+      },
+    ].forEach((obj) => {
+      obj.element.addEventListener("click", () => {
+        const filterType = obj.filterType;
+        if (this[filterType] === null) return (this[filterType] = "up");
+        this[filterType] === "up"
+          ? (this[filterType] = "down")
+          : (this[filterType] = "up");
+      });
     });
   }
 }

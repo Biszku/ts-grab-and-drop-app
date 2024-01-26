@@ -30,6 +30,7 @@ const init = () => {
   handleDataFromForm.handleForm(createNewTask);
   taskView.handleCategoryChange();
   taskView.handleFilterForm();
+  taskView.handleFilterByData();
 };
 
 init();
