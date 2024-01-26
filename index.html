@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="flex flex-col min-h-[100svh] container-bg">
-      <header class="z-2">
+      <header class="z-[1]">
         <div class="flex justify-between items-center px-[2rem] py-[1.5rem]">
           <h1
             class="text-[3.2rem] text-transparent bg-clip-text header_h1 w-min select-none hover:cursor-pointer"
@@ -25,14 +25,14 @@
           </button>
         </div>
       </header>
-      <main class="flex-1 flex flex-col justify-center">
+      <main class="flex-1 flex flex-col justify-center z-[1]">
         <section class="flex-1 flex flex-col justify-center items-center">
           <article
-            class="absolute left-[50%] top-[50%] translate-y-[-100%] translate-x-[-50%] flex justify-center z-[3] o-0 invisible"
+            class="absolute left-[50%] top-[50%] translate-y-[-100%] translate-x-[-50%] flex justify-center z-[2] o-0 invisible"
             id="form-section"
           >
             <div
-              class="relative z-[1] flex flex-col items-center gap-[4rem] rounded-[0.5rem] p-[4rem] form-bg"
+              class="flex flex-col items-center gap-[4rem] rounded-[0.5rem] p-[4rem] form-bg z-[1]"
             >
               <p class="text-[3.6rem]">Create Task</p>
               <form
@@ -110,7 +110,7 @@
                   class="col-start-2 row-start-3 mt-[2rem] justify-self-center"
                 >
                   <input
-                    class="bg-zinc-900 text-neutral-100 font-[500] w-min px-[2.5rem] py-[1rem] rounded-lg hover:opacity-90"
+                    class="bg-zinc-900 text-neutral-100 font-[500] w-min px-[2.5rem] py-[1rem] rounded-lg hover:opacity-90 hover:cursor-pointer"
                     type="submit"
                     value="Add"
                   />
@@ -121,14 +121,14 @@
               class="absolute w-[100%] h-[100%] backdrop-blur-[0.4rem]"
             ></div>
             <img
-              class="absolute z-[3] top-[1rem] right-[1rem] w-[4.2rem] hover:cursor-pointer"
+              class="absolute top-[1rem] right-[1rem] w-[4.2rem] hover:cursor-pointer z-[1]"
               src="./src/assets/close-outline.svg"
               alt="close icon"
               id="closeForm"
             />
           </article>
           <article
-            class="relative flex flex-col w-[70%] bg-[#c9c2a699] rounded-[0.5rem] border-[0.2rem] border-[#00000020] z-[2]"
+            class="relative flex-col w-[70%] bg-[#c9c2a699] rounded-[0.5rem] border-[0.2rem] border-[#00000020]"
           >
             <div
               class="flex justify-between items-center [100%] px-[2rem] py-[1rem] border-b-[0.2rem] border-[#00000020] hover:bg-[#b5af9550]"
@@ -177,16 +177,16 @@
             </div>
             <div id="container" class="flex flex-col"></div>
             <div
-              class="absolute w-[100%] h-[100%] backdrop-blur-[0.4rem] z-[-1]"
+              class="absolute w-[100%] h-[100%] backdrop-blur-[0.4rem] z-[-1] top-[0%] left-[0%]"
             ></div>
           </article>
           <div
-            class="absolute top-[0%] left-[0%] w-[100%] h-[100%] o-0 invisible bg-[#00000044] z-[2]"
+            class="absolute top-[0%] left-[0%] w-[100%] h-[100%] o-0 invisible bg-[#00000044] z-[1]"
             id="form-backdrop"
           ></div>
         </section>
         <article
-          class="absolute top-[50%] left-[0%] translate-y-[-50%] overflow-hidden z-[2]"
+          class="absolute top-[50%] left-[0%] translate-y-[-50%] overflow-hidden"
         >
           <div
             class="w-[5rem] p-[1rem] bg-[#ffd43b] cursor-pointer rounded-tr-lg"
@@ -213,12 +213,12 @@
             />
           </div>
         </article>
-        <footer class="bg-stone-900 mt-auto z-[2]">
+        <footer class="bg-stone-900 mt-auto">
           <p class="p-[1rem] text-slate-50">2024 &copy; Biszku</p>
         </footer>
       </main>
       <div
-        class="absolute h-[100%] w-[100%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] grid place-items-center z-[1] background--animation"
+        class="absolute h-[100%] w-[100%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] grid place-items-center background--animation"
       >
         <div
           class="absolute w-[25%] translate-y-[125%] aspect-square border-[1rem] border-[#a69e8240]"

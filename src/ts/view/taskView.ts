@@ -61,7 +61,7 @@ class TaskView extends View {
     const div = document.createElement("div");
     div.setAttribute("draggable", "true");
     div.classList.add(
-      "cursor-grab",
+      "cursor-move",
       "select-none",
       "hover:bg-[#b5af9550]",
       "px-[3rem]",
