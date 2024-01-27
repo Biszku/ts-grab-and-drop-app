@@ -22,15 +22,23 @@ const formVisibilityControl = () => {
   handleDataFromForm.handleFormAppearance();
 };
 
+const categoryController = () => {
+  taskView.renderActiveCat();
+  taskView.handleCategoryChange();
+};
+
+const filterController = () => {
+  taskView.handleFilterForm();
+  taskView.handleFilterByData();
+};
+
 const init = () => {
   checkLocalStorage();
   allowChangeTaskStatus();
   formVisibilityControl();
-  taskView.renderActiveCat();
+  categoryController();
+  filterController();
   handleDataFromForm.handleForm(createNewTask);
-  taskView.handleCategoryChange();
-  taskView.handleFilterForm();
-  taskView.handleFilterByData();
 };
 
 init();
