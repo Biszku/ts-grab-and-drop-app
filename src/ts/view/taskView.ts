@@ -225,6 +225,7 @@ class TaskView extends View {
         this[filterType] === "up"
           ? (this[filterType] = "down")
           : (this[filterType] = "up");
+        this.renderTask();
       });
     });
   }
