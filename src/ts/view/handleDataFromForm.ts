@@ -1,8 +1,8 @@
 import { TaskData } from "../types";
-import View from "./view";
+
 import { v4 as uuidv4 } from "uuid";
 
-class HandleDataFromForm extends View {
+class HandleDataFromForm {
   addingForm = document.querySelector("#adding-form") as HTMLButtonElement;
   formVisibleBtn = document.querySelector(
     "#submit-form-btn"
