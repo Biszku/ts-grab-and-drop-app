@@ -29,7 +29,6 @@ const categoryController = () => {
 
 const filterController = () => {
   taskView.handleFilterForm();
-  taskView.handleFilterByData();
 };
 
 const init = () => {
@@ -39,6 +38,7 @@ const init = () => {
   categoryController();
   filterController();
   handleDataFromForm.handleForm(createNewTask);
+  taskView.changeCursor();
 };
 
 init();
