@@ -2,23 +2,11 @@ import { TaskData } from "../types";
 import View from "./view";
 
 class TaskView extends View {
-  [key: string]: any;
   tasksState: TaskData[] = [];
   taskFilter: string = "";
 
-  statusFilter: string | null = null;
-  taskNameFilter: string | null = null;
-  startDateFilter: string | null = null;
-  endDateFilter: string | null = null;
-
-  statusElement = document.querySelector("#statusElement") as HTMLDivElement;
-  taskNameElement = document.querySelector(
-    "#taskNameElement"
-  ) as HTMLDivElement;
-  startDateElement = document.querySelector(
-    "#startDateElement"
-  ) as HTMLDivElement;
-  endDateElement = document.querySelector("#endDateElement") as HTMLDivElement;
+  mainTable = document.querySelector("#mainTable") as HTMLDivElement;
+  sideBarCats = document.querySelector("#sideBarCats") as HTMLDivElement;
 
   pendingTasksCat = document.querySelector("#pendingTasksCat") as HTMLLIElement;
   finishedTasksCat = document.querySelector(
@@ -26,16 +14,17 @@ class TaskView extends View {
   ) as HTMLLIElement;
   binTasksCat = document.querySelector("#binTasksCat") as HTMLLIElement;
 
-  filterTaskForm = document.querySelector("#filterTask") as HTMLInputElement;
-
   pending = document.querySelector("#pendingTasks") as HTMLDivElement;
   finished = document.querySelector("#finishedTasks") as HTMLDivElement;
   bin = document.querySelector("#moveToBin") as HTMLDivElement;
+
+  filterTaskForm = document.querySelector("#filterTask") as HTMLInputElement;
 
   curCategory = "pending";
 
   selectedStatus: null | string = null;
   selectedElementId: null | string = null;
+  selectedElementDiv: null | HTMLDivElement = null;
 
   addTask(data: TaskData) {
     this.tasksState = [...this.tasksState, data];
@@ -108,6 +97,8 @@ class TaskView extends View {
   taskMovingHandler(divElement: HTMLDivElement, id: string) {
     divElement.addEventListener("dragstart", () => {
       this.selectedElementId = id;
+      this.selectedElementDiv = divElement;
+      this.selectedElementDiv.classList.add("opacity-50");
     });
   }
 
@@ -141,7 +132,13 @@ class TaskView extends View {
   }
 
   taskStateMutation(id: string) {
-    if (this.selectedStatus === null) return;
+    if (this.selectedElementDiv)
+      this.selectedElementDiv.classList.remove("opacity-50");
+    this.selectedElementDiv = null;
+    if (this.selectedStatus === null) {
+      this.selectedElementId = null;
+      return;
+    }
     const newDatas = this.tasksState.map((obj) => {
       if (obj.id === id && this.selectedStatus !== null) {
         return { ...obj, status: this.selectedStatus };
@@ -200,34 +197,9 @@ class TaskView extends View {
     });
   }
 
-  handleFilterByData() {
-    [
-      {
-        element: this.statusElement,
-        filterType: "statusFilter",
-      },
-      {
-        element: this.taskNameElement,
-        filterType: "taskNameFilter",
-      },
-      {
-        element: this.startDateElement,
-        filterType: "startDateFilter",
-      },
-      {
-        element: this.endDateElement,
-        filterType: "endDateFilter",
-      },
-    ].forEach((obj) => {
-      obj.element.addEventListener("click", () => {
-        const filterType = obj.filterType;
-        if (this[filterType] === null) return (this[filterType] = "up");
-        this[filterType] === "up"
-          ? (this[filterType] = "down")
-          : (this[filterType] = "up");
-        this.renderTask();
-      });
-    });
+  changeCursor() {
+    this.mainTable.addEventListener("dragover", (e) => e.preventDefault());
+    this.sideBarCats.addEventListener("dragover", (e) => e.preventDefault());
   }
 }
 
