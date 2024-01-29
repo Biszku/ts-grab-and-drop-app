@@ -100,7 +100,7 @@ class TaskView extends View {
 
   createButton() {
     const button = document.createElement("button");
-    const bg = this.curCategory === "bin" ? "bg-[#e03131]" : "bg-zinc-900";
+    const bg = this.curCategory === "bin" ? "bg-red-900" : "bg-zinc-900";
 
     button.classList.add(
       `${bg}`,
