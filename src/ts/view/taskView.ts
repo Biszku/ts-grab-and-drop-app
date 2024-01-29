@@ -67,7 +67,7 @@ class TaskView extends View {
   }
 
   renderMarkUp(data: TaskData, index: number) {
-    const { id, taskName, description, startDate, endDate, status } = data;
+    const { id, taskName, startDate, endDate, status } = data;
     const div = document.createElement("div");
     div.setAttribute("draggable", "true");
     div.classList.add(
@@ -77,7 +77,8 @@ class TaskView extends View {
       "px-[3rem]",
       "py-[2.5rem]",
       "grid",
-      "grid-cols-5"
+      "grid-cols-5",
+      "items-center"
     );
 
     if (index !== 0) {
@@ -90,8 +91,32 @@ class TaskView extends View {
       span.classList.add("font-medium");
       div.appendChild(span);
     });
+    const button = this.createButton();
+    if (button !== null) div.appendChild(button);
+
     this.taskMovingHandler(div, id);
     return div;
+  }
+
+  createButton() {
+    const button = document.createElement("button");
+    const bg = this.curCategory === "bin" ? "bg-[#e03131]" : "bg-zinc-900";
+
+    button.classList.add(
+      `${bg}`,
+      "text-[#FFFEF1]",
+      "text-[1.8rem]",
+      "font-[500]",
+      "px-[2.5rem]",
+      "py-[1rem]",
+      "rounded-lg",
+      "place-self-center",
+      "hover:opacity-90"
+    );
+    if (this.curCategory === "bin") button.textContent = "Delete";
+    if (this.curCategory === "pending") button.textContent = "Edit";
+    if (this.curCategory === "finished") return null;
+    return button;
   }
 
   taskMovingHandler(divElement: HTMLDivElement, id: string) {
