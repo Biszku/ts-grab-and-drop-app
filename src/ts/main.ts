@@ -31,6 +31,7 @@ const init = () => {
   handleDataFromForm.handleForm(createNewTask);
   handleDataFromForm.handleFormAppearance();
   taskView.handleFilterForm();
+  taskView.handleTaskOrder();
 };
 
 init();

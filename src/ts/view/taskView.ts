@@ -234,6 +234,45 @@ class TaskView extends View {
     this.mainTable.addEventListener("dragover", (e) => e.preventDefault());
     this.sideBarCats.addEventListener("dragover", (e) => e.preventDefault());
   }
+
+  handleTaskOrder() {
+    this.container.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      const afterElement = this.getDragAfterElement(e.clientY);
+      if (this.selectedElementDiv) {
+        if (afterElement.element === undefined) {
+          this.container.appendChild(this.selectedElementDiv);
+        } else {
+          this.container.insertBefore(
+            this.selectedElementDiv,
+            afterElement.element
+          );
+        }
+      }
+    });
+  }
+
+  getDragAfterElement(y: number) {
+    const draggableElements = [
+      ...this.container.querySelectorAll("div:not(.opacity-50)"),
+    ];
+
+    return draggableElements.reduce(
+      (closest: { offset: number; element?: Element }, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      },
+      {
+        offset: Number.NEGATIVE_INFINITY,
+      }
+    );
+  }
 }
 
 export default new TaskView();
