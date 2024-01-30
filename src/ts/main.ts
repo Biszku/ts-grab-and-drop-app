@@ -18,27 +18,19 @@ const allowChangeTaskStatus = () => {
   taskView.changeStatusOfTask();
 };
 
-const formVisibilityControl = () => {
-  handleDataFromForm.handleFormAppearance();
-};
-
 const categoryController = () => {
   taskView.renderActiveCat();
   taskView.handleCategoryChange();
 };
 
-const filterController = () => {
-  taskView.handleFilterForm();
-};
-
 const init = () => {
   checkLocalStorage();
   allowChangeTaskStatus();
-  formVisibilityControl();
   categoryController();
-  filterController();
-  handleDataFromForm.handleForm(createNewTask);
   taskView.changeCursor();
+  handleDataFromForm.handleForm(createNewTask);
+  handleDataFromForm.handleFormAppearance();
+  taskView.handleFilterForm();
 };
 
 init();

@@ -91,14 +91,14 @@ class TaskView extends View {
       span.classList.add("font-medium");
       div.appendChild(span);
     });
-    const button = this.createButton();
+    const button = this.createButton(id);
     if (button !== null) div.appendChild(button);
 
     this.taskMovingHandler(div, id);
     return div;
   }
 
-  createButton() {
+  createButton(id: string) {
     const button = document.createElement("button");
     const bg = this.curCategory === "bin" ? "bg-red-900" : "bg-zinc-900";
 
@@ -113,7 +113,15 @@ class TaskView extends View {
       "place-self-center",
       "hover:opacity-90"
     );
-    if (this.curCategory === "bin") button.textContent = "Delete";
+    if (this.curCategory === "bin") {
+      button.textContent = "Delete";
+      button.addEventListener("click", () => {
+        const arrWithoutThatElement = this.tasksState.filter(
+          (obj) => obj.id !== id
+        );
+        this.updateTaskState(arrWithoutThatElement);
+      });
+    }
     if (this.curCategory === "pending") button.textContent = "Edit";
     if (this.curCategory === "finished") return null;
     return button;
