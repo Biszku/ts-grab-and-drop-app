@@ -1,5 +1,6 @@
 import { TaskData } from "./types";
-import handleDataFromForm from "./view/handleDataFromForm";
+import categoryChange from "./view/categoryChange";
+import handleDataFromForm from "./view/dataFromFormControl";
 import taskView from "./view/taskView";
 
 const createNewTask = (data: TaskData) => {
@@ -19,8 +20,10 @@ const allowChangeTaskStatus = () => {
 };
 
 const categoryController = () => {
-  taskView.renderActiveCat();
-  taskView.handleCategoryChange();
+  categoryChange.handleCategoryChange(
+    taskView.updateCategoryState.bind(taskView)
+  );
+  categoryChange.renderActiveCat(taskView.curCategory);
 };
 
 const init = () => {

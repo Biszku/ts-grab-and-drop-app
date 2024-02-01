@@ -2,7 +2,6 @@ import { TaskData } from "../types";
 import View from "./view";
 
 class TaskView extends View {
-  tasksState: TaskData[] = [];
   taskFilter: string = "";
 
   mainTable = document.querySelector("#mainTable") as HTMLDivElement;
@@ -183,44 +182,9 @@ class TaskView extends View {
     this.selectedElementId = null;
   }
 
-  handleCategoryChange() {
-    [
-      { element: this.pending, category: "pending" },
-      { element: this.finished, category: "finished" },
-      { element: this.bin, category: "bin" },
-    ].forEach((obj) =>
-      obj.element.addEventListener("click", () =>
-        this.categoryChange(obj.category)
-      )
-    );
-
-    [
-      { element: this.pendingTasksCat, category: "pending" },
-      { element: this.finishedTasksCat, category: "finished" },
-      { element: this.binTasksCat, category: "bin" },
-    ].forEach((obj) =>
-      obj.element.addEventListener("click", () =>
-        this.categoryChange(obj.category)
-      )
-    );
-  }
-
-  categoryChange(category: string) {
+  updateCategoryState(category: string) {
     this.curCategory = category;
-    this.renderActiveCat();
     this.renderTask();
-  }
-
-  renderActiveCat() {
-    [
-      { element: this.pending, category: "pending" },
-      { element: this.finished, category: "finished" },
-      { element: this.bin, category: "bin" },
-    ].forEach((obj) => {
-      obj.element.classList.remove("active-cat");
-      if (this.curCategory === obj.category)
-        obj.element.classList.add("active-cat");
-    });
   }
 
   handleFilterForm() {
