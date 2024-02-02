@@ -137,9 +137,12 @@
               <div
                 class="flex justify-between items-center [100%] px-[2rem] py-[1rem]"
               >
-                <ul class="flex text-[2.6rem] font-[500] gap-[3rem]">
+                <ul
+                  class="flex text-[2.6rem] font-[500] gap-[3rem]"
+                  id="mainCategoryList"
+                >
                   <li
-                    class="flex items-center gap-[0.5rem] hover:cursor-pointer"
+                    class="pending flex items-center gap-[0.5rem] hover:cursor-pointer"
                     id="pendingTasksCat"
                   >
                     <img
@@ -150,7 +153,7 @@
                     Pending
                   </li>
                   <li
-                    class="flex items-center gap-[0.5rem] hover:cursor-pointer"
+                    class="finished flex items-center gap-[0.5rem] hover:cursor-pointer"
                     id="finishedTasksCat"
                   >
                     <img
@@ -161,7 +164,7 @@
                     Finished
                   </li>
                   <li
-                    class="flex items-center gap-[0.5rem] hover:cursor-pointer"
+                    class="bin flex items-center gap-[0.5rem] hover:cursor-pointer"
                     id="binTasksCat"
                   >
                     <img
@@ -240,30 +243,35 @@
           class="absolute top-[50%] left-[0%] translate-y-[-50%] overflow-hidden"
           id="sideBarCats"
         >
-          <div
-            class="w-[5rem] p-[1rem] bg-[#ffd43b] cursor-pointer rounded-tr-lg"
-            id="pendingTasks"
-          >
-            <img
-              src="./src/assets/contract-pending-line-svgrepo-com.svg"
-              alt="pending icon"
-            />
-          </div>
-          <div
-            class="w-[5rem] p-[1rem] bg-[#69db7c] cursor-pointer"
-            id="finishedTasks"
-          >
-            <img src="./src/assets/task-svgrepo-com.svg" alt="finished icon" />
-          </div>
-          <div
-            class="w-[5rem] p-[1rem] bg-[#ff8787] rounded-br-lg cursor-pointer"
-            id="moveToBin"
-          >
-            <img
-              src="./src/assets/bin-cancel-close-delete-garbage-remove-svgrepo-com.svg"
-              alt="bin icon"
-            />
-          </div>
+          <ul>
+            <li
+              class="pending w-[5rem] p-[1rem] bg-[#ffd43b] cursor-pointer rounded-tr-lg"
+              id="pendingTasks"
+            >
+              <img
+                src="./src/assets/contract-pending-line-svgrepo-com.svg"
+                alt="pending icon"
+              />
+            </li>
+            <li
+              class="finished w-[5rem] p-[1rem] bg-[#69db7c] cursor-pointer"
+              id="finishedTasks"
+            >
+              <img
+                src="./src/assets/task-svgrepo-com.svg"
+                alt="finished icon"
+              />
+            </li>
+            <li
+              class="bin w-[5rem] p-[1rem] bg-[#ff8787] rounded-br-lg cursor-pointer"
+              id="moveToBin"
+            >
+              <img
+                src="./src/assets/bin-cancel-close-delete-garbage-remove-svgrepo-com.svg"
+                alt="bin icon"
+              />
+            </li>
+          </ul>
         </article>
         <footer class="bg-stone-900 mt-auto">
           <p class="p-[1rem] text-slate-50">2024 &copy; Biszku</p>
