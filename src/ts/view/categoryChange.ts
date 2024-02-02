@@ -1,36 +1,25 @@
 class CategoryChange {
-  pendingTasksCat = document.querySelector("#pendingTasksCat") as HTMLLIElement;
-  finishedTasksCat = document.querySelector(
-    "#finishedTasksCat"
-  ) as HTMLLIElement;
-  binTasksCat = document.querySelector("#binTasksCat") as HTMLLIElement;
+  categoryList = ["pending", "finished", "bin"];
 
-  pending = document.querySelector("#pendingTasks") as HTMLDivElement;
-  finished = document.querySelector("#finishedTasks") as HTMLDivElement;
-  bin = document.querySelector("#moveToBin") as HTMLDivElement;
+  mainCategoryList = document.querySelector(
+    "#mainCategoryList"
+  ) as HTMLUListElement;
+
+  sideBarCats = document.querySelector("#sideBarCats") as HTMLDivElement;
 
   handleCategoryChange(handle: (cat: string) => void) {
-    [
-      { element: this.pending, category: "pending" },
-      { element: this.finished, category: "finished" },
-      { element: this.bin, category: "bin" },
-    ].forEach((obj) =>
-      obj.element.addEventListener("click", () => {
-        this.categoryChange(obj.category);
-        handle(obj.category);
-      })
-    );
-
-    [
-      { element: this.pendingTasksCat, category: "pending" },
-      { element: this.finishedTasksCat, category: "finished" },
-      { element: this.binTasksCat, category: "bin" },
-    ].forEach((obj) =>
-      obj.element.addEventListener("click", () => {
-        this.categoryChange(obj.category);
-        handle(obj.category);
-      })
-    );
+    [this.mainCategoryList, this.sideBarCats].forEach((arr) => {
+      arr.addEventListener("click", (e) => {
+        const target = e.target as HTMLLIElement;
+        const element = target.closest("li");
+        if (element === null) return;
+        const cat = [...element.classList].slice(0, 1)[0];
+        if (this.categoryList.includes(cat)) {
+          this.categoryChange(cat);
+          handle(cat);
+        }
+      });
+    });
   }
 
   categoryChange(category: string) {
@@ -38,13 +27,11 @@ class CategoryChange {
   }
 
   renderActiveCat(category: string) {
-    [
-      { element: this.pending, category: "pending" },
-      { element: this.finished, category: "finished" },
-      { element: this.bin, category: "bin" },
-    ].forEach((obj) => {
-      obj.element.classList.remove("active-cat");
-      if (category === obj.category) obj.element.classList.add("active-cat");
+    const elements = this.sideBarCats.querySelectorAll("li");
+    elements.forEach((element) => {
+      element.classList.remove("active-cat");
+      const cat = [...element.classList].slice(0, 1)[0];
+      if (category === cat) element.classList.add("active-cat");
     });
   }
 }
